@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="My test suite">
+    <test name="my first test">
+        <classes>
+            <class name="com.espn.AccountTest"></class>
+        </classes>
+    </test>
+</suite>
