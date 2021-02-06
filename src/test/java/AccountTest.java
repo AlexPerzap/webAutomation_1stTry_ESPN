@@ -1,5 +1,3 @@
-package com.espn;
-
 import org.testng.annotations.*;
 
 import java.util.logging.Logger;
