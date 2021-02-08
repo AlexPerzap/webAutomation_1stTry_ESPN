@@ -1,8 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="My test suite">
-    <test name="my first test">
+<suite name="ESPN test suite">
+
+    <test name="ESPN test">
+        <parameter name="firstName" value="John"></parameter>
+        <parameter name="lastName" value="Smith"></parameter>
+
         <classes>
-            <class name="BaseTests"></class>
+            <class name="login.LoginTests"></class>
+
         </classes>
     </test>
 </suite>
