@@ -20,17 +20,15 @@ public class BaseTests {
     public static void setupClass() {
         WebDriverManager.chromedriver().setup();
         Logger logger = LoggerFactory.getLogger(BaseTests.class);
-        logger.info("Hello World");
+        logger.info("Hello Tested World");
     }
 
     @BeforeClass
     public void setupTest() {
         driver = new ChromeDriver();
         driver.get("https://www.espnqa.com/?src=com&espn=cloud&_adblock=true");
-
-        //driver.manage().window().maximize();
+        driver.manage().window().maximize();
         homePage = new HomePage(driver);
-
     }
 
     @AfterClass
@@ -40,9 +38,4 @@ public class BaseTests {
         }
     }
 
-    @Test
-    public void test() {
-      //  homePage.clickLoginBtn();
-
-    }
 }

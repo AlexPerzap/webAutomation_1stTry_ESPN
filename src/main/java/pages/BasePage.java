@@ -1,7 +1,9 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
@@ -22,12 +24,12 @@ public class BasePage {
         return wait;
     }
 
-    public void dispose() {
-        if (driver != null) {
-            driver.quit();
-        }
+    public void clickAfterWaiting(WebElement element){
+        getWait().until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 
-
+    public void switchToParentContent(){
+        getDriver().switchTo().defaultContent();
+    }
 
 }

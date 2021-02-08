@@ -8,13 +8,12 @@ import pages.LoginSignupPage;
 
 public class LoginTests extends BaseTests {
 
-    @Test
-    public void loginTest(){
-        LoginSignupPage loginSignupPage = homePage.clickLoginBtn();
-        loginSignupPage.setEmail("juanperzap@gmail.com");
-        loginSignupPage.setPassword("clave098");
-        loginSignupPage.clickSubmit();
-        homePage.backToHome();
-        Assert.assertEquals(homePage.checkLogoutBtn(), "Log Out", "Incorrect text");
+    @Test(description = "Logging in with valid data")
+    public void withValidData(){
+        LoginSignupPage loginSignupPage = homePage.goToLoginForm();
+        loginSignupPage.fillAndSubmitLoginForm("juanperzap@gmail.com", "clave098");
+        homePage.switchToParentContent();
+        Assert.assertEquals(homePage.checkLogoutBtnText(), "Log Out", "Login failed");
+        homePage.logOut();
     }
 }

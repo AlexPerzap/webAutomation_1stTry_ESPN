@@ -11,34 +11,33 @@ public class HomePage extends BasePage{
     @FindBy(id = "global-user-trigger")
     private WebElement userIcon;
     @FindBy(css=".tools a[tref*='login']")
-    private WebElement logInLink;
+    private WebElement loginLink;
     @FindBy(id = "disneyid-iframe")
-    private WebElement iFrame;
-
+    private WebElement loginIFrame;
     @FindBy(css=".tools a[onClick*='logout']")
-    private WebElement logOutLink;
+    private WebElement logoutLink;
 
     public HomePage(WebDriver driver){
         super(driver);
     }
 
-    public LoginSignupPage clickLoginBtn(){
-        getWait().until(ExpectedConditions.visibilityOf(userIcon));
-        userIcon.click();
-        getWait().until(ExpectedConditions.visibilityOf(logInLink));
-        logInLink.click();
-        getDriver().switchTo().frame(iFrame);
+    public LoginSignupPage goToLoginForm(){
+        clickAfterWaiting(userIcon);
+        clickAfterWaiting(loginLink);
+        getDriver().switchTo().frame(loginIFrame);
         return new LoginSignupPage(getDriver());
     }
 
-    public String checkLogoutBtn(){
-        getWait().until(ExpectedConditions.visibilityOf(userIcon));
-        userIcon.click();
-        getWait().until(ExpectedConditions.visibilityOf(logOutLink));
-        return logOutLink.getAttribute("innerText");
+    public String checkLogoutBtnText(){
+        clickAfterWaiting(userIcon);
+        return logoutLink.getAttribute("innerText");
     }
 
-    public void backToHome() {
-        getDriver().switchTo().defaultContent();
+    public void logOut(){
+        clickAfterWaiting(userIcon);
+        clickAfterWaiting(logoutLink);
     }
+
+
+
 }

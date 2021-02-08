@@ -13,22 +13,21 @@ public class LoginSignupPage extends BasePage {
     private WebElement passwordField;
     @FindBy(how = How.CSS, using = "div:nth-of-type(3)>button")
     private WebElement submitButton;
+    @FindBy(id = "disneyid-iframe")
+    private WebElement loginIFrame;
 
 
     public LoginSignupPage(WebDriver driver){
         super(driver);
     }
 
-    public void setEmail(String email){
+    public void fillAndSubmitLoginForm(String email, String password){
         emailField.sendKeys(email);
-    }
-    public void setPassword(String password){
         passwordField.sendKeys(password);
-    }
-    public void clickSubmit(){
-        //getWait().until(ExpectedConditions.elementToBeClickable(getDriver().findElement(submitButton)))
-        //getWait();
         submitButton.click();
-    //    getDriver().switchTo().defaultContent();
+        getWait().until(ExpectedConditions.invisibilityOf(loginIFrame));// attention!
     }
+
+    //fill and submit para delete(reutilizo) parametros(exclusivos) se envían desde el test
+
 }

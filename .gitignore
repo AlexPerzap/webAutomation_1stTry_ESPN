@@ -14,7 +14,7 @@
 hs_err_pid*
 
 # IntelliJ
-/.idea
+*.idea
 .idea/workspace.xml
 /out
 
@@ -27,7 +27,7 @@ hs_err_pid*
 *.iws
 *.iml
 *.ipr
-/target/
+target/
 
 #external resources
 *.exe
