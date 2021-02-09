@@ -3,17 +3,15 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 public class HomePage extends BasePage{
-
     @FindBy(id = "global-user-trigger")
     private WebElement userIcon;
     @FindBy(css=".tools a[tref*='login']")
     private WebElement loginLink;
     @FindBy(id = "disneyid-iframe")
-    private WebElement loginIFrame;
+    private WebElement loginAndSignupForms_IFrame;
     @FindBy(css=".tools a[onClick*='logout']")
     private WebElement logoutLink;
 
@@ -21,11 +19,11 @@ public class HomePage extends BasePage{
         super(driver);
     }
 
-    public LoginSignupPage goToLoginForm(){
+    public LoginAndSignupFormsPage goToLoginForm(){
         clickAfterWaiting(userIcon);
         clickAfterWaiting(loginLink);
-        getDriver().switchTo().frame(loginIFrame);
-        return new LoginSignupPage(getDriver());
+        getDriver().switchTo().frame(loginAndSignupForms_IFrame);
+        return new LoginAndSignupFormsPage(getDriver());
     }
 
     public String checkLogoutBtnText(){
@@ -37,7 +35,5 @@ public class HomePage extends BasePage{
         clickAfterWaiting(userIcon);
         clickAfterWaiting(logoutLink);
     }
-
-
 
 }
