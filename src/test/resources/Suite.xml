@@ -1,13 +1,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="ESPN test suite">
-
+        <parameter name="firstName" value="Juan"></parameter>
+        <parameter name="lastName" value="Perzap"></parameter>
+        <parameter name="email" value="juanperzap@gmail.com"></parameter>
+        <parameter name="password" value="clave098"></parameter>
     <test name="ESPN test">
-        <parameter name="firstName" value="John"></parameter>
-        <parameter name="lastName" value="Smith"></parameter>
-
         <classes>
             <class name="login.LoginTests"></class>
             <class name="logout.LogoutTests"></class>
+            <class name="accountManagement.DeleteAccountTests"></class>
         </classes>
     </test>
 </suite>

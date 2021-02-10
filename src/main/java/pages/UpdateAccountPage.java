@@ -23,6 +23,7 @@ public class UpdateAccountPage extends BasePage{
     }
 
     public void deleteAccount(){
+        log.info("Click on the 'Delete account' link and confirm");
         getWait().until(ExpectedConditions.visibilityOf(emailTitle)); //attention
         Actions actions = new Actions(getDriver());
         actions.moveToElement(deleteAccountLink).perform();
