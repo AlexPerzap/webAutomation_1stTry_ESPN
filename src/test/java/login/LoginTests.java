@@ -3,16 +3,15 @@ package login;
 import base.BaseTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.LoginAndSignupFormsPage;
+import pages.LoginFormPage;
 
 
 public class LoginTests extends BaseTests {
 
     @Test(description = "Logging in with valid data")
     public void withValidData(){
-        LoginAndSignupFormsPage loginAndSignupFormsPage = homePage.goToLoginForm();
-        loginAndSignupFormsPage.fillAndSubmitLoginForm("juanperzap@gmail.com", "clave098");
-        //homePage.switchToParentContent(); //prescindible ¿por qué?
+        LoginFormPage loginFormPage = homePage.goToLoginForm();
+        loginFormPage.getLoggedIn("juanperzap@gmail.com", "clave098");
         Assert.assertEquals(homePage.checkLogoutBtnText(), "Log Out", "Login failed");
         homePage.logOut();
     }
