@@ -24,7 +24,7 @@ public class LoginFormPage extends BasePage {
     }
 
     public void getLoggedIn(String email, String password){
-        log.info("Fill the 'log in' form and submit it");
+        log.info("Fill in the 'log in' form and submit it");
         emailField.sendKeys(email);
         passwordField.sendKeys(password);
         submitButton.click();
@@ -33,7 +33,7 @@ public class LoginFormPage extends BasePage {
     }
 
     public SignupFormPage goToSignupForm(){
-        log.info("Fill the 'sign up' form and submit it");
+        log.info("Fill in the 'sign up' form and submit it");
         clickAfterWaiting(goToSignupForm_Button);
         return new SignupFormPage(getDriver());
     }

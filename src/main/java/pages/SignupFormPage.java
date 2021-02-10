@@ -25,7 +25,7 @@ public class SignupFormPage extends BasePage{
     }
 
     public void createAccount(String fName, String lName, String email, String password){
-        log.info("Fill the 'create account' form and submit it");
+        log.info("Fill in the 'create account' form and submit it");
         getWait().until(ExpectedConditions.elementToBeClickable(signupConfirmation_Button)); //attention!
         firstNameField.sendKeys(fName);
         lastNameField.sendKeys(lName);
